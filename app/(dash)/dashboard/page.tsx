@@ -59,7 +59,7 @@ export default async function DashboardPage() {
           )}
         </div>
       </section>
-
+      
       {/* Main Content */}
       {(candidates?.length ?? 0) === 0 ? (
         <div className="rounded-lg border border-gray-200 bg-white p-8 text-center shadow-sm">

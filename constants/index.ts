@@ -3,7 +3,7 @@ export const NAV_LINKS = [
   { href: '/#home',            key: 'home',             label: 'Home' },
   { href: '/service', key: 'product_ai',  label: 'Service' },
   { href: '/4kings',        key: '4kings',         label: 'About' },
-  { href: '/#doc',         key: 'doc',          label: 'Doc' },
+  { href: '/#news',        key: 'news',         label: 'News' },
   { href: '/#contact_us',      key: 'contact_us',       label: 'Contact' },
 ];
 
@@ -53,10 +53,10 @@ export const FOOTER_LINKS = [
     title: 'Learn More',
     links: [
       { label: 'About TemanHire', href: '/#home' },
-      { label: 'Demo', href: '/dashboard' },
-      { label: 'License', href: '/#license' },
-      { label: 'Jobs', href: '/#jobs' },
-      { label: 'Privacy Policy', href: '/#privacy' },
+      { label: 'Login', href: '/login' },
+      { label: 'License', href: 'https://raw.githubusercontent.com/4Kings-Rakamin/TemanHire.com/refs/heads/main/LICENSE' },
+      { label: 'Jobs', href: '/jobs' },
+      { label: 'Privacy Policy', href: '/privacypolicy' },
       { label: 'Contact Us', href: '/#contact_us' },
     ],
   },
@@ -64,8 +64,13 @@ export const FOOTER_LINKS = [
     title: 'Our Repository',
     links: [
       { label: '4Kings', href: 'https://github.com/4Kings-Rakamin' },
-      { label: 'Streamlit Prototype', href: 'https://github.com/4Kings-Rakamin' }, // ganti nanti
-      { label: 'TemanHire.com', href: 'https://github.com/4Kings-Rakamin' },       // ganti nanti
+      { label: 'Laporan FinPro', href: 'https://github.com/4Kings-Rakamin/Laporan_FP' }, 
+      { label: 'TemanHire.com', href: 'https://github.com/4Kings-Rakamin/TemanHire.com' },   
+      { label: 'Stage4 FastAPI App', href: 'https://github.com/4Kings-Rakamin/Stage4_FastAPI_Deployment' },    
+      { label: 'Stage3_Best Model & Feature Importance', href: 'https://github.com/4Kings-Rakamin/Stage_3_BestModel_FeatureImportance' },    
+      { label: 'Stage2_Baseline Model', href: 'https://github.com/4Kings-Rakamin/Stage2_Modelling-Evaluation' },   
+      { label: 'Stage1_EDA & Data Preprocessing', href: 'https://github.com/4Kings-Rakamin/Stage1_DataAcquisition-Preparation' },  
+      { label: 'Stage0_Business Understanding', href: 'https://github.com/4Kings-Rakamin/Stage0_Business_Understanding' },  
     ],
   },
 ];

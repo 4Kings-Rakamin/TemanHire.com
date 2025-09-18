@@ -5,6 +5,7 @@ import Hero from '@/components/Hero'
 import GetApp from '@/components/GetApp'
 import Image from 'next/image'
 
+
 export default function Home() {
   return (
     <>

@@ -52,15 +52,23 @@ const Navbar = () => {
       </ul>
 
       {/* Desktop button */}
-      <div className="hidden lg:flexCenter">
+      <div className="hidden lg:flexCenter gap-3">
         <Button
           type="button"
-          title="Login"
+          title="Masuk"
           icon="/user.svg"
           variant="btn_dark_green"
           href="/login"
         />
+        <Button
+          type="button"
+          title="Daftar"
+          icon="/singup.svg" // bisa bikin ikon baru atau reuse yg ada
+          variant="btn_dark_blue"
+          href="/signup"
+        />
       </div>
+
 
       {/* Mobile menu trigger */}
       <button

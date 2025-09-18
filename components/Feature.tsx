@@ -1,65 +1,99 @@
-import { FEATURES } from '@/constants'
-import Image from 'next/image'
-import React from 'react'
+import Image from "next/image";
 
-const Features = () => {
+type GuardianItem = {
+  id: string;
+  webUrl: string;
+  webTitle: string;
+  sectionName: string;
+  webPublicationDate: string;
+  fields?: { thumbnail?: string; trailText?: string };
+};
+
+const CAREER_QUERY =
+  '(hiring OR recruitment OR "job market" OR employment OR graduate OR graduation OR internship OR "talent acquisition" OR layoffs OR vacancy)';
+
+async function fetchGuardian(query: string = CAREER_QUERY) {
+  const key = process.env.GUARDIAN_API_KEY;
+  const url = new URL("https://content.guardianapis.com/search");
+  url.searchParams.set("q", query);
+  url.searchParams.set("page-size", "8");
+  url.searchParams.set("order-by", "relevance");          // ✅ prioritaskan kecocokan
+  url.searchParams.set("type", "article");                // ✅ hindari liveblogs
+  url.searchParams.set("query-fields", "headline,trailText"); // ✅ fokus bidang relevan
+  url.searchParams.set("show-fields", "thumbnail,trailText");
+  url.searchParams.set("api-key", key || "test");
+
+  // Matikan cache dulu biar hasil langsung berubah. Nanti boleh ganti ke revalidate: 300
+  const res = await fetch(url.toString(), { cache: "no-store" });
+  if (!res.ok) throw new Error(`Guardian API error: ${res.status}`);
+  const data = await res.json();
+  return data.response?.results ?? [];
+}
+
+
+export default async function Feature() {
+  let items: GuardianItem[] = [];
+
+  try {
+    items = await fetchGuardian(CAREER_QUERY); // ✅ fokus berita hiring
+  } catch (e) {
+    console.error("Guardian fetch error:", e);
+  }
+
   return (
-    <section id="4_kings"className=" flex-col flexCenter overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24">
-      <div className=" max-container padding-container relative w-full flex justify-end">
-        <div className=" flex flex-1 lg:min-h-[900px]">
-          <Image
-            src="/phone2.png"
-            alt="phone"
-            width={440}
-            height={1000}
-            className="
-            feature-phone
-            lg:absolute lg:left-0 lg:top-1/2 lg:-translate-y-1/2
-            lg:-translate-x-10   // geser ke kiri 10px (atur sesuai kebutuhan)
-          "
-          />
+    <section
+      id="news"
+      className="flexCenter flex-col overflow-hidden bg-feature-bg bg-center bg-no-repeat py-24"
+    >
+      <div className="max-container padding-container w-full">
+        <div className="mb-8">
+          <h2 className="bold-40 lg:bold-64">Career & Hiring News</h2>
+          <p className="regular-16 text-gray-500">Curated from The Guardian</p>
         </div>
 
-        <div className=" z-20 flex w-full flex-col lg:w-[60%]">
-          <div className='relative'>
-            <h2 className="bold-40 lg:bold-64">Meet 4Kings</h2>
-          </div>
-          <ul className="mt-10 grid gap-10 md:grid-cols-2 lg:mg-20 lg:gap-20">
-            {FEATURES.map((feature) => (
-              <FeatureItem 
-                key={feature.title}
-                title={feature.title} 
-                icon={feature.icon}
-                description={feature.description}
+        <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {items.map((it) => (
+            <li
+              key={it.id}
+              className="group rounded-2xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md transition"
+            >
+              {it.fields?.thumbnail && (
+                <div className="relative mb-3 aspect-[16/9] overflow-hidden rounded-xl">
+                  <Image
+                    src={it.fields.thumbnail}
+                    alt={it.webTitle}
+                    fill
+                    sizes="(max-width:768px) 100vw, 25vw"
+                    className="object-cover group-hover:scale-[1.02] transition"
+                  />
+                </div>
+              )}
+              <a
+                href={it.webUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="bold-18 hover:underline"
+              >
+                {it.webTitle}
+              </a>
+              <p
+                className="regular-14 mt-2 line-clamp-3 text-gray-600"
+                dangerouslySetInnerHTML={{
+                  __html: it.fields?.trailText ?? "",
+                }}
               />
-            ))}
-          </ul>
-        </div>
+              <div className="mt-3 flex items-center justify-between text-xs text-gray-500">
+                <span>
+                  {new Date(it.webPublicationDate).toLocaleDateString()}
+                </span>
+                <span className="rounded-full bg-gray-100 px-2 py-0.5">
+                  {it.sectionName}
+                </span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
-  )
+  );
 }
-
-type FeatureItem = {
-  title: string;
-  icon: string;
-  description: string;
-}
-
-const FeatureItem = ({ title, icon, description }: FeatureItem) => {
-  return (
-    <li className="flex w-full flex-1 flex-col items-start">
-      <div className="rounded-full p-4 lg:p-7 bg-[#0097b2]">
-        <Image src={icon} alt="map" width={28} height={28} />
-      </div>
-      <h2 className="bold-20 lg:bold-32 mt-5 capitalize">
-        {title}
-      </h2>
-      <p className="regular-16 mt-5 bg-white/80 text-gray-30 lg:mt-[30px] lg:bg-none">
-        {description}
-      </p>
-    </li>
-  )
-}
-
-export default Features

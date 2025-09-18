@@ -59,6 +59,14 @@ export default function DashNavbarClient({
                 Konsultasi
               </Link>
             </li>
+            <li>
+              <Link
+                href="/dashboard/news"
+                className="relative pb-1.5 text-sm text-gray-800 transition-all hover:font-semibold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#0097b2] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                News
+              </Link>
+            </li>
           </ul>
 
           {/* Right cluster: displayName (sm+), avatar, sign out */}
@@ -128,6 +136,14 @@ export default function DashNavbarClient({
               onClick={() => setIsOpen(false)}
             >
               Konsultasi
+            </Link>
+            <Link
+              href="/dashboard/news"
+              role="menuitem"
+              className="rounded-lg px-4 py-2 text-gray-800 transition hover:bg-gray-100 hover:text-[#0097b2]"
+              onClick={() => setIsOpen(false)}
+            >
+              News
             </Link>
 
             <div className="my-2 border-t border-gray-100" />

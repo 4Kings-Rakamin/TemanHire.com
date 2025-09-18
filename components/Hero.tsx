@@ -43,7 +43,7 @@ const Hero = () => {
             title = "Our Team"
             icon="/camp.svg"
             variant = "btn_white_text"
-            href="/#4_kings"
+            href="/4kings"
             />
           {/* <a
             href="#get-started"

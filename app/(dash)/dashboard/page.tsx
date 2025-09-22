@@ -4,6 +4,10 @@ import { supabaseServer } from '@/lib/supabase/server';
 import DeleteCandidateButton from '@/components/dashboard/DeleteCandidateButton';
 import { AiScoreButton } from '@/components/dashboard/AiScoreButton'
 import { AiScoreAllButton } from '@/components/dashboard/AiScoreAllButton';
+import AnalyticsBar from '@/components/dashboard/AnalyticsStrategyBar';
+import AnalyticsTrendLine from '@/components/dashboard/AnalyticsTrendLine';
+import AnalyticsPassPie from '@/components/dashboard/AnalyticsPassPie';
+import TopAiCandidates from '@/components/dashboard/TopAiCandidates';
 import Link from 'next/link';
 
 export default async function DashboardPage() {
@@ -81,6 +85,15 @@ export default async function DashboardPage() {
         </div>
       ) : (
         <div className="space-y-4">
+          {/* Bar Chart Recruitment Strategy */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <AnalyticsBar items={candidates ?? []} field="recruitment_strategy" title="Recruitment Strategy (Top)" />
+            <AnalyticsBar items={candidates ?? []} field="education_level" title="Education Level" />
+            <AnalyticsBar items={candidates ?? []} field="experience_level" title="Experience Level" />
+            <AnalyticsTrendLine candidates={candidates ?? []} />
+            <AnalyticsPassPie candidates={candidates ?? []} title="Pass vs Fail vs Unscored" />
+            <TopAiCandidates candidates={candidates ?? []} limit={5} />
+          </div>
           {/* Header Actions */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <h2 className="text-xl font-semibold text-black">Your Candidates</h2>

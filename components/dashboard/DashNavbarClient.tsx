@@ -67,6 +67,14 @@ export default function DashNavbarClient({
                 News
               </Link>
             </li>
+            <li>
+              <Link
+                href="/dashboard/cvocr"
+                className="relative pb-1.5 text-sm text-gray-800 transition-all hover:font-semibold after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-[#0097b2] after:transition-all after:duration-300 hover:after:w-full"
+              >
+                ScanCV
+              </Link>
+            </li>
           </ul>
 
           {/* Right cluster: displayName (sm+), avatar, sign out */}

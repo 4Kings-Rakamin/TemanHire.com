@@ -7,8 +7,8 @@ const services = [
     icon: "/folded-map.svg", // Add these icons to your public folder
     description: "Prediksi kandidat terbaik dengan teknologi AI canggih",
     features: [
-      "Prediksi 1500+ Kandidat dengan 99.9% akurasi prediksi kecocokan kandidat",
-      "Analisis 10+ parameter kandidat secara real-time",
+      "Prediksi 1500+ Kandidat dengan 99.9% akurasi prediksi model XGBoost kecocokan kandidat",
+      "Analisis berbagai parameter kandidat secara real-time",
       "Rekomendasi personal berdasarkan kultur perusahaan",
       "Dashboard prediksi visual yang informatif"
     ]
@@ -25,17 +25,6 @@ const services = [
     ]
   },
   {
-    title: "AI Instant Interview",
-    icon: "/folded-map.svg",
-    description: "Wawancara otomatis kapanpun dan dimanapun",
-    features: [
-      "Sistem interview 24/7 yang fleksibel",
-      "Analisis bahasa tubuh dan intonasi suara",
-      "Penilaian soft skill & hard skill otomatis",
-      "Laporan hasil interview yang komprehensif"
-    ]
-  },
-  {
     title: "AI CV/Resume Screening",
     icon: "/folded-map.svg",
     description: "Screening CV/Resume dalam hitungan detik",
@@ -44,6 +33,17 @@ const services = [
       "Ekstraksi skill & pengalaman otomatis",
       "Deteksi keaslian dokumen dengan AI",
       "Scoring kandidat berbasis machine learning"
+    ]
+  },
+    {
+    title: "Portal berita seputar HR & Bisnis",
+    icon: "/folded-map.svg",
+    description: "Dapatkan update terbaru seputar HR & Bisnis",
+    features: [
+      "Konten berkualitas dari sumber terpercaya",
+      "Cari tahu tips & trik seputar HR dan Bisnis",
+      "Akses gratis kapan saja, di mana saja",
+      "Nikmati pengalaman membaca yang menyenangkan"
     ]
   }
 ];

@@ -87,7 +87,7 @@ export default async function DashboardPage() {
         <div className="space-y-4">
           {/* Bar Chart Recruitment Strategy */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            <AnalyticsBar items={candidates ?? []} field="recruitment_strategy" title="Recruitment Strategy (Top)" />
+            <AnalyticsBar items={candidates ?? []} field="recruitment_strategy" title="Recruitment Strategy" />
             <AnalyticsBar items={candidates ?? []} field="education_level" title="Education Level" />
             <AnalyticsBar items={candidates ?? []} field="experience_level" title="Experience Level" />
             <AnalyticsTrendLine candidates={candidates ?? []} />

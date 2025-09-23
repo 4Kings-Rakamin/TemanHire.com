@@ -64,7 +64,6 @@ export const FOOTER_LINKS = [
     title: 'Our Repository',
     links: [
       { label: '4Kings', href: 'https://github.com/4Kings-Rakamin' },
-      { label: 'Laporan FinPro', href: 'https://github.com/4Kings-Rakamin/Laporan_FP' }, 
       { label: 'TemanHire.com', href: 'https://github.com/4Kings-Rakamin/TemanHire.com' },   
       { label: 'Stage4 FastAPI App', href: 'https://github.com/4Kings-Rakamin/Stage4_FastAPI_Deployment' },    
       { label: 'Stage3_Best Model & Feature Importance', href: 'https://github.com/4Kings-Rakamin/Stage_3_BestModel_FeatureImportance' },    
@@ -79,7 +78,7 @@ export const FOOTER_CONTACT_INFO = {
   title: 'Contact Us',
   links: [
     { label: 'Admin', value: '+62-812-3932-7802' },
-    { label: 'Email Us', value: 'info@temanhire.com' },
+    { label: 'Email Us', value: 'gungwahari2@gmail.com' },
   ],
 };
 

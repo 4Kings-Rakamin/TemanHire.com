@@ -34,7 +34,7 @@ const Button = ({
           rel="noopener noreferrer" 
           className={baseClass}
         >
-          {icon && <Image src={icon} alt={title} width={24} height={24} />}
+          {icon && <Image src={icon} alt={title} width={22} height={22} />}
           <p className="bold-16 whitespace-nowrap">{title}</p>
         </a>
       )
@@ -42,7 +42,7 @@ const Button = ({
 
     return (
       <Link href={href} className={baseClass}>
-        {icon && <Image src={icon} alt={title} width={24} height={24} />}
+        {icon && <Image src={icon} alt={title} width={22} height={22} />}
         <p className="bold-16 whitespace-nowrap">{title}</p>
       </Link>
     )
@@ -51,7 +51,7 @@ const Button = ({
   // 🖱 Kalau tidak ada href → button biasa
   return (
     <button type={type} className={baseClass}>
-      {icon && <Image src={icon} alt={title} width={24} height={24} />}
+      {icon && <Image src={icon} alt={title} width={22} height={22} />}
       <p className="bold-16 whitespace-nowrap">{title}</p>
     </button>
   )

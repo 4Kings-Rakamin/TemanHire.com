@@ -68,7 +68,7 @@ const Camp = () => {
         <CampSite
           backgroundImage="bg-bg-img-1"
           title="AI Based Hiring Prediction"
-          subtitle="Mengambil keputusan dalam 1 Klik dengan Model LLM Kami"
+          subtitle="Mengambil keputusan dalam 1 Klik dengan Model XGBoost"
           subsubtitle="(Click to try Model)"
           peopleJoined="9.1k+ Merekomendasikan ini"
           link="/service"
@@ -83,8 +83,8 @@ const Camp = () => {
         />
         <CampSite
           backgroundImage="bg-bg-img-2"
-          title="AI Instant Interview"
-          subtitle="Interview Instant dimanapun dan kapanpun dengan Model LLM Kami"
+          title="Scan CV (YOLOv11 + EasyOCR)"
+          subtitle="Upload CV kandidat, dan biarkan Model Kami yang membaca"
           subsubtitle="(Click to try Model)"
           peopleJoined="13.2k+ Merekomendasikan ini"
           link="/service"

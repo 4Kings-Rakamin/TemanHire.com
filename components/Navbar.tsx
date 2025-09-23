@@ -52,7 +52,7 @@ const Navbar = () => {
       </ul>
 
       {/* Desktop button */}
-      <div className="hidden lg:flexCenter gap-3">
+      <div className="hidden lg:flexCenter gap-2">
         <Button
           type="button"
           title="Masuk"

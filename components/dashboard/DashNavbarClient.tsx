@@ -146,6 +146,14 @@ export default function DashNavbarClient({
               Konsultasi
             </Link>
             <Link
+              href="/dashboard/cvocr"
+              role="menuitem"
+              className="rounded-lg px-4 py-2 text-gray-800 transition hover:bg-gray-100 hover:text-[#0097b2]"
+              onClick={() => setIsOpen(false)}
+            >
+              ScanCV
+            </Link>
+            <Link
               href="/dashboard/news"
               role="menuitem"
               className="rounded-lg px-4 py-2 text-gray-800 transition hover:bg-gray-100 hover:text-[#0097b2]"

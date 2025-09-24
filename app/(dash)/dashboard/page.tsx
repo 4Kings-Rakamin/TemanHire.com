@@ -39,10 +39,38 @@ export default async function DashboardPage() {
       <h1 className="text-2xl font-bold text-black">Dashboard</h1>
 
       {/* Welcome Card */}
-      <div className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
-        <p className="text-sm text-gray-600">
-          Welcome{profile?.full_name ? `, ${profile.full_name}` : ''}! ({session.user.email})
-        </p>
+      <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+        <div className="flex items-start space-x-4">
+          <div className="rounded-full bg-[#0097b2] p-3">
+            <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <div className="flex-1">
+            <h2 className="mb-2 text-xl font-semibold text-gray-800">
+              Selamat Datang{profile?.full_name ? `, ${profile.full_name}` : ''}!
+            </h2>
+            <p className="text-sm leading-relaxed text-gray-600">
+              <span className="text-[#0097b2] font-medium">{session.user.email}</span>
+              <br />
+              Dashboard ini membantu Anda mengelola dan melihat informasi Kandidat. 
+            </p>
+            <div className="mt-4 space-y-2 text-sm text-gray-600">
+              <p className="flex items-center">
+                <span className="mr-2">•</span>
+                Gunakan tombol di bawah untuk menambahkan kandidat baru atau mengimpor dari CSV
+              </p>
+              <p className="flex items-center">
+                <span className="mr-2">•</span>
+                Klik tombol edit pada setiap kandidat untuk memperbarui informasi
+              </p>
+              <p className="flex items-center">
+                <span className="mr-2">•</span>
+                Gunakan tombol AI Score untuk menilai ulang kandidat dengan Model XGBoost terbaru kami
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Statistics Cards */}

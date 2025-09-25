@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
@@ -69,7 +71,9 @@ export function ConsultChat() {
               className={`max-w-[85%] whitespace-pre-wrap rounded-2xl px-3 py-2 text-sm shadow-sm
                 ${m.role === 'user' ? 'bg-black text-white' : 'bg-black/5 text-black'}`}
             >
-              {m.content}
+              <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                {m.content}
+              </ReactMarkdown>
             </div>
           </div>
         ))}

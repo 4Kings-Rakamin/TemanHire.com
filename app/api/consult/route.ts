@@ -32,7 +32,7 @@ export async function POST(req: Request) {
 
     // Panggil OpenRouter
     const completion = await client.chat.completions.create({
-      model: "deepseek/deepseek-r1-distill-llama-70b:free",
+      model: "xiaomi/mimo-v2-flash:free",
       messages: [
         {
           role: "system",

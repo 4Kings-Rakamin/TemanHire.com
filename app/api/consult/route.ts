@@ -32,7 +32,7 @@ export async function POST(req: Request) {
 
     // Panggil OpenRouter
     const completion = await client.chat.completions.create({
-      model: "tngtech/deepseek-r1t2-chimera:free",
+      model: "tngtech/deepseek-r1t2-chimera:free,meta-llama/llama-3.3-70b-instruct:free",
       // tngtech/deepseek-r1t2-chimera:free
       messages: [
         {

@@ -32,7 +32,8 @@ export async function POST(req: Request) {
 
     // Panggil OpenRouter
     const completion = await client.chat.completions.create({
-      model: "xiaomi/mimo-v2-flash:free",
+      model: "tngtech/deepseek-r1t2-chimera:free",
+      // tngtech/deepseek-r1t2-chimera:free
       messages: [
         {
           role: "system",
